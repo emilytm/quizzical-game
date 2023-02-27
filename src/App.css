@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Karla:wght@700&display=swap');
+
+
 .App {
   text-align: center;
+  font-family: 'Inter', 'Trebuchet MS', Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -35,4 +39,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2em;
+  padding-right: 2em;
+  color: #293264;
+}
+
+.question-container {
+  border-bottom: 2px solid #DBDEF0;
+}
+
+.question-container h3 {
+  font-size: 1em;
+  font-weight: light;
+  font-family: 'Karla','Inter','Trebuchet MS',Helvetica, sans-serif;
+  text-align: left;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.answer-option {
+  font-size: .625em;
+  padding: .5em .75em;
+  border: 1px solid #4D5B9E;
+  border-radius: .75em;
+  font-weight: 500;
 }
