@@ -75,4 +75,13 @@
   border: 1px solid #4D5B9E;
   border-radius: .75em;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.answer-option:hover {
+  background-color: #e4e7f5;
+}
+
+.selected-answer {
+  background-color: #D6DBF5;
 }

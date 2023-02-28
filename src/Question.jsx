@@ -3,19 +3,33 @@ import Answer from './Answer'
 
 export default function Question(props){
 
-    let correctAnswerOption = <Answer value={props.correctAnswer}/>
-    let answerOptions = props.incorrectAnswers.map(answerOption => <Answer value={answerOption}/>)
 
-    let randomIndex = Math.ceil(Math.random() * (answerOptions.length + 1))
-    console.log(`the length of the incorrect answer options array is ((((${answerOptions.length})))) and the random index is (((${randomIndex})))`)
+    const [userSelection, setUserSelection] = React.useState("")
+    const [isCorrect, setIsCorrect] = React.useState(false)
 
-    answerOptions.splice(randomIndex,0,correctAnswerOption)
+    //answers 
+    //  value
+    //  isCorrect
+
+    console.log(props)
+
+    let answerOptionsArray = props.answers.answerArray.map(answer => {
+        return <Answer value={answer.value} handleClick={handleSelection} key={answer.value} isSelected={userSelection === answer.value ? true : false}/>
+    })
+
+    
+    function handleSelection(answer){
+        //apply selection styling
+        setUserSelection(answer)
+        console.log(`in handleSelection for question ${props.questionText} and setting userSelection to:`)
+        setTimeout(() => {console.log(`${answer} WHICH SHOULD MATCH ${userSelection}`)},1500)
+    }
 
     return (
         <div className="question-container">
-            <h3>{props.question}</h3>
+            <h3>{props.questionText}</h3>
             <div className="options-container">
-                {answerOptions}
+                {answerOptionsArray}
             </div>
         </div>
     )
