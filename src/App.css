@@ -72,16 +72,31 @@
 .answer-option {
   font-size: .625em;
   padding: .5em .75em;
-  border: 1px solid #4D5B9E;
   border-radius: .75em;
   font-weight: 500;
-  cursor: pointer;
-}
-
-.answer-option:hover {
-  background-color: #e4e7f5;
 }
 
 .selected-answer {
   background-color: #D6DBF5;
+}
+
+.active-option {
+  cursor: pointer;
+  border: 1px solid #4D5B9E;
+}
+
+.active-option:hover {
+  background-color: #e4e7f5;
+}
+
+.inactive-option {
+  opacity: 50%;
+}
+
+.correct-answer {
+  background-color: #94D7A2;
+}
+
+.incorrect-answer {
+  background-color: #F8BCBC;
 }

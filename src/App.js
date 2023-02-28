@@ -6,7 +6,7 @@ import Quiz from './Quiz'
 function App() {
 
   const [questions, setQuestions] = React.useState([])
-  const [isActiveQuiz, setIsActiveQuiz] = React.useState(false)
+  const [isQuizStarted, setisQuizStarted] = React.useState(false)
 
   React.useEffect(()=>{
     fetch('https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple')
@@ -35,13 +35,13 @@ function App() {
   },[1])
 
   function startNewGame(){
-    setIsActiveQuiz(true)
+    setisQuizStarted(true)
   }
 
   return (
     <div className="App">
       {
-        isActiveQuiz 
+        isQuizStarted 
         ? 
           <Quiz questions={questions}/>
         :

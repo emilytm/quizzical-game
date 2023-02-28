@@ -14,15 +14,23 @@ export default function Question(props){
     console.log(props)
 
     let answerOptionsArray = props.answers.answerArray.map(answer => {
-        return <Answer value={answer.value} handleClick={handleSelection} key={answer.value} isSelected={userSelection === answer.value ? true : false}/>
+        return <Answer 
+                    value={answer.value} 
+                    handleClick={handleSelection} 
+                    key={answer.value} 
+                    isSelected={userSelection === answer.value ? true : false}
+                    isActive={props.isActive}
+                    isCorrect={answer.isCorrect}
+                />
     })
 
     
     function handleSelection(answer){
-        //apply selection styling
-        setUserSelection(answer)
-        console.log(`in handleSelection for question ${props.questionText} and setting userSelection to:`)
-        setTimeout(() => {console.log(`${answer} WHICH SHOULD MATCH ${userSelection}`)},1500)
+        if (userSelection === answer){
+            setUserSelection("")
+        } else {
+            setUserSelection(answer)
+        }
     }
 
     return (
