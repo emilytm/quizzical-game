@@ -10,15 +10,21 @@ export default function Quiz(props){
         return (<Question questionText={question.questionText} answers={question.answers} key={question.questionText} isActive={isActiveQuiz}/>)
     })
 
-    function checkAnswers(){
-        setisActiveQuiz(false)
+    function handleStartNewGame(){
+        props.handleButtonClick()
+        setisActiveQuiz(true)
+    }
+
+    function handleClick(){
+        console.log('in click handler function for button')
+        isActiveQuiz ? setisActiveQuiz(false) : handleStartNewGame()
     }
 
     return (
         <div className="quiz-container">
             <h2>Quiz time</h2>
             {questionDisplay}
-            <button className='check-answers-btn' onClick={checkAnswers}>Check answers</button>
+            <button className='check-answers-btn' onClick={handleClick}>{isActiveQuiz ? 'Check answers' : 'Start new quiz'}</button>
         </div>
     )
 }

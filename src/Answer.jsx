@@ -9,7 +9,13 @@ export default function Answer(props){
             className={
                 `answer-option 
                 ${props.isSelected && 'selected-answer'} 
-                ${props.isActive ? 'active-option' : 'inactive-option'}
+                ${props.isActive ? 
+                    'active option' : 
+                    props.isSelected ? 
+                        props.isCorrect ? 
+                            'correct-answer' :
+                            'incorrect-answer' :
+                        'inactive option'}
                 `}//${props.isActive === false && props.isCorrect ? 'correct-answer' : 'incorrect-answer' }`}
             onClick={() => props.handleClick(props.value)}
         >{props.value}</p>
