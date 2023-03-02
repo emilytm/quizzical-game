@@ -28,14 +28,16 @@ export default function Question(props){
     } */
     
     function handleSelection(answer){
-        console.log("in handleSelection in Question")
+        console.log(`in handleSelection in Question ${props.questionText} with answer ${answer}`)
         if (userSelection === answer){
             setUserSelection("")
         } else {
             let correctAnswer = props.answers.answerArray.find(option => option.isCorrect === true).value 
             if (answer === correctAnswer) {
+                console.log("THIS IS A CORRECT ANSWER")
                 props.setAsCorrect(props.questionText)
             }
+            setUserSelection(answer)
         }
     }
 
