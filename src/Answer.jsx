@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function Answer(props){
-    let isCorrectSubmitted = !props.isActive && props.isSelected && props.isCorrect
-    console.log(`Answer option ${props.value} is--- Active: ${props.isActive}, Selected: ${props.isSelected}, and Correct: ${props.isCorrect} ergo isCorrectSubmitted: ${isCorrectSubmitted}`)
+   // let isCorrectSubmitted = !props.isActive && props.isSelected && props.isCorrect
 
     return (
         <p 

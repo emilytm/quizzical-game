@@ -5,9 +5,14 @@ export default function Quiz(props){
     const [quizScore, setQuizScore] = React.useState(0)
     const [isActiveQuiz, setisActiveQuiz] = React.useState(true)
 
-
     let questionDisplay = props.questions.map(question => {
-        return (<Question questionText={question.questionText} answers={question.answers} key={question.questionText} isActive={isActiveQuiz}/>)
+        return (<Question 
+                    questionText={question.questionText} 
+                    answers={question.answers} 
+                    key={question.questionText} 
+                    isActive={isActiveQuiz}
+                    selectedAnswer={""}
+                    setAsCorrect={addCorrectToScore}/>)
     })
 
     function handleStartNewGame(){
@@ -18,6 +23,11 @@ export default function Quiz(props){
     function handleClick(){
         console.log('in click handler function for button')
         isActiveQuiz ? setisActiveQuiz(false) : handleStartNewGame()
+    }
+
+    function addCorrectToScore(){
+        setQuizScore(prevScore => prevScore+1)
+        console.log(`THE CURRENT QUIZ SCORE IS ${quizScore}`)
     }
 
     return (
