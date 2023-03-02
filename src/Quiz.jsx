@@ -5,6 +5,14 @@ export default function Quiz(props){
     const [quizScore, setQuizScore] = React.useState(0)
     const [isActiveQuiz, setisActiveQuiz] = React.useState(true)
 
+    let questionsCorrect = props.questions.map(question => {
+        return {
+            value: question.questionText,
+            isCorrect: false
+        }
+    })
+
+
     let questionDisplay = props.questions.map(question => {
         return (<Question 
                     questionText={question.questionText} 
@@ -25,9 +33,15 @@ export default function Quiz(props){
         isActiveQuiz ? setisActiveQuiz(false) : handleStartNewGame()
     }
 
-    function addCorrectToScore(){
-        setQuizScore(prevScore => prevScore+1)
-        console.log(`THE CURRENT QUIZ SCORE IS ${quizScore}`)
+    function addCorrectToScore(questionText){
+
+        console.log(`I'm in addCorrectToScore in Quiz component and setting the following question to correct: ${questionText}`)
+
+        props.questions.find(question => question.questionText === questionText).isCorrect = true
+
+        console.log(`The current score is: ${props.questions.filter(question => question.isCorrect === true).length}`)
+        //setQuizScore(prevScore => prevScore+1)
+        //console.log(`THE CURRENT QUIZ SCORE IS ${quizScore}`)
     }
 
     return (

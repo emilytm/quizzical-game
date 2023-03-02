@@ -2,6 +2,7 @@ import React from 'react'
 
 export default function Answer(props){
    // let isCorrectSubmitted = !props.isActive && props.isSelected && props.isCorrect
+   console.log(props)
 
     return (
         <p 
