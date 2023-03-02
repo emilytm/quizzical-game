@@ -4,12 +4,7 @@ import Answer from './Answer'
 export default function Question(props){
 
 
-    const [userSelection, setUserSelection] = React.useState("")
-
-    //answers 
-    //  value
-    //  isCorrect
-//selectedAnswer
+    const [userSelection, setUserSelection] = React.useState("") //used to style the answer options depending on whether selected or not
 
     let answerOptionsArray = props.answers.answerArray.map(answer => {
         return <Answer 
@@ -21,22 +16,13 @@ export default function Question(props){
                     isCorrect={answer.isCorrect}
                 />
     })
-/*
-    function setAsCorrect(){
-        console.log("----SETTING A QUESTION AS CORRECT-----")
-        props.setAsCorrect()
-    } */
     
+    //When an answer option is selected, grade the question at the quiz level and save the user's selection
     function handleSelection(answer){
-        console.log(`in handleSelection in Question ${props.questionText} with answer ${answer}`)
+        props.handleAnswer(props.questionText, answer)
         if (userSelection === answer){
             setUserSelection("")
         } else {
-            let correctAnswer = props.answers.answerArray.find(option => option.isCorrect === true).value 
-            if (answer === correctAnswer) {
-                console.log("THIS IS A CORRECT ANSWER")
-                props.setAsCorrect(props.questionText)
-            }
             setUserSelection(answer)
         }
     }

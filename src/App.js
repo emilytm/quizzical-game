@@ -42,6 +42,7 @@ function App() {
       })
   },[quizId])
 
+  //Get a new quizId to start a new quiz game and set it to active so the questions are interactive
   function startNewGame(){
     setQuizId(nanoid())
     setisActiveQuiz(true)
@@ -52,9 +53,15 @@ function App() {
     isActiveQuiz ? setisActiveQuiz(false) : startNewGame()
   }
 
-  function addCorrectToScore(questionText){
+  //Based on the question and the answer, grade the question and update the quiz score
+  function gradeQuestion(questionText, answer){
+    let correctAnswer = questions.find(question => question.questionText === questionText).answers.answerArray.find(option => option.isCorrect === true).value 
+    if (answer === correctAnswer) {
       questions.find(question => question.questionText === questionText).isCorrect = true
-      setQuizScore(questions.filter(question => question.isCorrect === true).length)
+    } else {
+      questions.find(question => question.questionText === questionText).isCorrect = false
+    }
+    setQuizScore(questions.filter(question => question.isCorrect === true).length)
   }
 
   //Get the array of Question components representing each question in this quiz
@@ -65,7 +72,7 @@ function App() {
                 key={question.questionText} 
                 isActive={isActiveQuiz}
                 selectedAnswer={""}
-                setAsCorrect={addCorrectToScore}/>)
+                handleAnswer={gradeQuestion}/>)
   })
 
 //if there is not yet a quizId, display the start page, but if there is one, display the quiz
