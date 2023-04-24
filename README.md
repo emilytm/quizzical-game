@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+#Quizzical Trivia Game
+
+Quizzical is a trivia game that I created as the solo project for the 'React Basics' module of the Scrimba Front End Developer Career Path. This app makes use of the Open Trivia DB API to generate sets of 5 multiple choice trivia questions. Design and functionality requirements are from Scrimba.
+
+**Next steps:** Add more controls for how many questions, of which type, in which category, consider trying to make it a game you could play live with friends, or integrate an AI API to generate a broader variety of more relevant questions with answer explanations.
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
