@@ -1,4 +1,4 @@
-#Quizzical Trivia Game
+# Quizzical Trivia Game
 
 Quizzical is a trivia game that I created as the solo project for the 'React Basics' module of the Scrimba Front End Developer Career Path. This app makes use of the Open Trivia DB API to generate sets of 5 multiple choice trivia questions. Design and functionality requirements are from Scrimba.
 
